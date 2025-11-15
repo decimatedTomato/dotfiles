@@ -12,4 +12,4 @@
 [rerere]
 	enabled = true
 [include]
-	path = /path/to/file
+	path = ~/.config_local

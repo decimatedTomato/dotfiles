@@ -1,4 +1,0 @@
-map	≈	:let [&nu, &rnu] = [!&nu, !&rnu]<CR>
-map	Ω	:set wrap!<CR>
-map	®	:source $MYVIMRC<CR>
-map	π	p

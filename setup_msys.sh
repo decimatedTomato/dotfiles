@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-ln -s .gitconfig ~/.gitconfig
-ln -s .bashrc ~/.bashrc
-ln -s .tmux.conf ~/.tmux.conf 
-ln -s .vimrc ~/.vimrc
-ln -s nvim/ ~/.config/nvim
+insert_dotfile .gitconfig
+insert_dotfile .bashrc
+mv ~/.bashrc ~/.bash/bashrc.main
+ln -s $script_dir/.bashrc_msys ~/.bashrc
+insert_dotfile .tmux.conf
+insert_dotfile .vimrc

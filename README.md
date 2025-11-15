@@ -8,8 +8,8 @@
 ## CONTAINS
 - Handles 5 different common setups
 	1. Linux
-	2. Linux (accessed remotely through a mac)
-	3. OS X
+	2. Linux (with apple keyboard)
+	3. OSX
 	4. WSL
 	5. MSYS
 - Sets similar configuration for basic tools
@@ -21,11 +21,22 @@
 	6. Zsh
 
 ## TODO
-- Install common software the user might want
-	- Tree
-	- Tig
-	- Netcat
-	- Htop
 - Install devtools a user might want
-	- Make
 	- Fzf for vim
+- Setup up environment variables to get back and forth between windows and wsls
+	- export WIND='/c/Users/username'
+	- export UBUNTU='AppData/Local/Packages/CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc/LocalState/rootfs/home/username'
+	- export SUSE='AppData/Local/Packages/CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc/LocalState/rootfs/home/username'
+	- \\wsl.localhost\openSUSE-Tumbleweed
+	- \\wsl.localhost\Ubuntuc
+	- C:\MinGW
+
+- unified copy/paste interface on all platforms
+
+- Test setup_linux_mac
+- Test setup_linux
+- Test setup_osx
+- Test setup_msys
+- Test setup_wsl
+- fix .tmux.conf
+	- Want to be able to use my mouse and copy paste selected bits

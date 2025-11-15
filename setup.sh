@@ -2,19 +2,13 @@
 
 script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-get_linux_distro_name() {
-	if [ -f /etc/os-release ]; then
-		. /etc/os-release
-		return $NAME
-	else
-		echo 'Could not get OS name'
-		exit 1
-	fi
-}
-
 ask() {
+	local bold=$(tput bold)
+	local normal=$(tput sgr0)
+	local prompt="${1/'*'/${bold}}"
+	prompt="${prompt/'*'/{normal}}"
 	while true; do
-		read -p "$1 ([y]/n) " -r
+		read -p "$prompt ([y]/n) " -r
 		reply=${reply:-"y"}
 		if [[ $reply =~ ^[Yy]$ ]]; then
 			return 1
@@ -26,24 +20,25 @@ ask() {
 
 insert_dotfile() {
 	[ -f ~/$1 ] && mv ~/$1 ~/"$1"_local
-	ln -s $1 ~/$1
+	ln -s $script_dir/$1 ~/$1
 }
 
 case "$(uname -sr)" in
 	Linux*)
+		source $script_dir/setup_linux.sh
 		# Special keybinds for mac keyboard
 		ask "Are you using a regular (not apple) keyboard?" \
-			&& source script_dir/setup_linux.sh
-			|| source script_dir/setup_linux_mac.sh
+			&& source $script_dir/setup_linux_mac.sh
 		;;
 	Darwin*)
-		source script_dir/setup_osx.sh
+		source $script_dir/setup_osx.sh
 		;;
 	Linux*Microsoft*)
-		source script_dir/setup_wsl.sh
+		source $script_dir/setup_linux.sh
+		source $script_dir/setup_wsl.sh
 		;;
 	CYGWIN*|MINGW*|MINGW32*|MSYS*)
-		source script_dir/setup_msys.sh
+		source $script_dir/setup_msys.sh
 		;;
 	*)
 		echo 'Unrecognized OS'

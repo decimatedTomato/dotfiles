@@ -5,7 +5,7 @@ set hlsearch
 set showmatch
 
 " Disable highlight when <leader><cr> is pressed
-nmap    <Esc>   :noh<cr>
+nmap	<Esc>	:noh<cr>
 
 " Alt + x to toggle number display
 map	<M-Z>	:let [&nu, &rnu] = [!&nu, !&rnu]<CR>
@@ -18,7 +18,7 @@ map	<M-R>	:source $MYVIMRC<CR>
 
 " Control + s to save
 nmap	<C-S>	:update<CR>
-vmap	<C-S> 	<C-C>:update<CR>
+vmap	<C-S>	<C-C>:update<CR>
 imap	<C-S>	<C-O>:update<CR>
 
 " Control + x to exit
@@ -32,10 +32,10 @@ map	<C-X>	:x<CR>
 " No yank default value
 vmap	<C-H>	"ry:%s/<C-R>"r//g<Left><Left>
 
-nmap    <M-j>  mz:m+<cr>`z
-nmap    <M-k>  mz:m-2<cr>`z
-vmap    <M-j>  :m'>+<cr>`<my`>mzgv`yo`z
-vmap    <M-k>  :m'<-2<cr>`>my`<mzgv`yo`z
+nmap	<M-j>	mz:m+<cr>`z
+nmap	<M-k>	mz:m-2<cr>`z
+vmap	<M-j>	:m'>+<cr>`<my`>mzgv`yo`z
+vmap	<M-k>	:m'<-2<cr>`>my`<mzgv`yo`z
 
 " Alt + p to paste around selection
 " Last yank appends, second last yank prepends
@@ -48,5 +48,5 @@ vmap	<M-P>	p
 " Find references (ctags anyone?)
 
 if filereadable(glob('~/.vimrc_local'))
-  source ~/.vimrc_local
+	source ~/.vimrc_local
 endif
