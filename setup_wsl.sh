@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-# Assumes Ubuntu
-
 ln -s .gitconfig ~/.gitconfig
 ln -s .bashrc ~/.bashrc
-ln -s .tmux.conf ~/.tmux.conf 
-ln -s .vimrc ~/.vimrc
+ln -s .tmux.conf ~/.tmux.conf
+ln -s .vimrc_windows ~/.vimrc
+echo ":so $script_dir/.vimrc" >> ~/.vimrc
+
 ln -s nvim/ ~/.config/nvim
 
 ask() {

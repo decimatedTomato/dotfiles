@@ -21,19 +21,11 @@
 	6. Zsh
 
 ## TODO
-- Remove the section in the vimrc that involves plugins if the user does not want to install a plugin manager
 - Install common software the user might want
-	- Tldr
-	- Jq
-	- Xdd
 	- Tree
 	- Tig
 	- Netcat
 	- Htop
 - Install devtools a user might want
-	- Vimplug
 	- Make
-	- Node
-	- Utop/Dune
-	- Cargo
 	- Fzf for vim

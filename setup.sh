@@ -1,32 +1,52 @@
 #!/usr/bin/env bash
 
+script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+get_linux_distro_name() {
+	if [ -f /etc/os-release ]; then
+		. /etc/os-release
+		return $NAME
+	else
+		echo 'Could not get OS name'
+		exit 1
+	fi
+}
+
+ask() {
+	while true; do
+		read -p "$1 ([y]/n) " -r
+		reply=${reply:-"y"}
+		if [[ $reply =~ ^[Yy]$ ]]; then
+			return 1
+		elif [[ $reply =~ ^[Nn]$ ]]; then
+			return 0
+		fi
+	done
+}
+
+insert_dotfile() {
+	[ -f ~/$1 ] && mv ~/$1 ~/"$1"_local
+	ln -s $1 ~/$1
+}
+
 case "$(uname -sr)" in
+	Linux*)
+		# Special keybinds for mac keyboard
+		ask "Are you using a regular (not apple) keyboard?" \
+			&& source script_dir/setup_linux.sh
+			|| source script_dir/setup_linux_mac.sh
+		;;
 	Darwin*)
-		echo 'Mac OS X'
-		setup_osx.sh
+		source script_dir/setup_osx.sh
 		;;
 	Linux*Microsoft*)
-		echo 'WSL'
-		setup_wsl.sh
-		;;
-	Linux*)
-		echo 'Linux'
-		# Special keybinds for mac keyboard
-		if [ $1 = '--mac' ]; then dotfiles_linux/setup_mac.sh
-		else setup_linux.sh
-		fi
+		source script_dir/setup_wsl.sh
 		;;
 	CYGWIN*|MINGW*|MINGW32*|MSYS*)
-		echo 'MS Windows'
-		setup_msys.sh
+		source script_dir/setup_msys.sh
 		;;
 	*)
 		echo 'Unrecognized OS'
+		exit 1
 		;;
 esac
-
-cat << EOF
-Now use:
-git config --global user.name <your github account name>
-git config --global user.email <your github associated email>
-EOF

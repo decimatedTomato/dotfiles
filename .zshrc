@@ -1,11 +1,11 @@
 ########################### ENVIRONMENT VARIABLES ##############################
-export HISTSIZE=-1
-export HISTFILESIZE=-1
+export HISTSIZE=100000
+export SAVEHIST=100000
 export LESS='-j 2 --mouse --wheel-lines 2'
 ################################### SETTINGS ###################################
-shopt -s histappend
+setopt EXTENDED_HISTORY
 ################################### ALIASES ####################################
-export EDITOR=vim
+EDITOR=vim
 alias brc='$EDITOR ~/.bashrc && source ~/.bashrc'
 alias zrc='$EDITOR ~/.zshrc && source ~/.zshrc'
 alias vrc='$EDITOR ~/.vimrc'

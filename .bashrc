@@ -2,7 +2,8 @@
 export HISTSIZE=-1
 export HISTFILESIZE=-1
 export LESS='-j 2 --mouse --wheel-lines 2'
-export EDITOR=vim
+############################## SHELL VARIABLES #################################
+EDITOR=vim
 ################################### SETTINGS ###################################
 shopt -s histappend
 ################################### ALIASES ####################################
@@ -26,5 +27,7 @@ alias v='source ./venv/bin/activate'
 alias vv='python -m venv venv && v'
 
 alias cmake_grep='grep -r --exclude-dir build --include '*.cmake' --include 'CMakeLists.txt''
+
+################################################################################
 
 [ -f ~/.bashrc_local ] && source ~/.bashrc_local
