@@ -11,3 +11,5 @@
 		}; f"
 [rerere]
 	enabled = true
+[include]
+	path = /path/to/file

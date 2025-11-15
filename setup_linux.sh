@@ -1,6 +1,31 @@
 #!/usr/bin/env bash
 
-# Assumes Ubuntu
+set -e
+
+if [ -f /etc/os-release ]; then
+	. /etc/os-release
+	OS=$NAME
+else
+	echo 'Could not identify OS name.'
+	exit 1
+fi
+
+if [ -x "$(command -v apk)" ];
+then
+    sudo apk add --no-cache "${packagesNeeded[@]}"
+elif [ -x "$(command -v apt-get)" ];
+then
+    sudo apt-get install "${packagesNeeded[@]}"
+elif [ -x "$(command -v dnf)" ];
+then
+    sudo dnf install "${packagesNeeded[@]}"
+elif [ -x "$(command -v zypper)" ];
+then
+    sudo zypper install "${packagesNeeded[@]}"
+else
+    echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: "${packagesNeeded[@]}"">&2;
+fi
+
 
 insert_dotfile() {
 	[ -f ~/$1 ] && mv $1 "$1"_local
@@ -9,7 +34,7 @@ insert_dotfile() {
 
 insert_dotfile .gitconfig
 insert_dotfile .bashrc
-insert_dotfile .tmux.conf ~/.tmux
+insert_dotfile .tmux.conf
 insert_dotfile .vimrc
 
 ask() {
@@ -71,8 +96,7 @@ install_rust() {
 }
 
 install_ocaml() {
-	sudo apt-get -y install ocaml
-	sudo apt-get -y install utop
+	sudo apt-get -y install ocaml utop
 }
 
 install_javascript() {

@@ -23,11 +23,6 @@
 ## TODO
 - Remove the section in the vimrc that involves plugins if the user does not want to install a plugin manager
 - Install common software the user might want
-	- Fzf
-		- Check if fzf exists, if so use that fzf_dir instead of the hardcoded one
-		- Remove and replace fzf config section from bashrc when setup script is run
-			- Use a multiline sed command
-		- Add support for other shells
 	- Tldr
 	- Jq
 	- Xdd
