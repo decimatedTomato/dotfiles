@@ -1,3 +1,8 @@
+# Only run for interactive shells
+case $- in
+	*i*) ;;
+	*) return;;
+esac
 ########################### ENVIRONMENT VARIABLES ##############################
 export HISTSIZE=100000
 export SAVEHIST=100000

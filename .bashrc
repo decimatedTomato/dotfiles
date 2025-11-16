@@ -1,3 +1,8 @@
+# Only run for interactive shells
+case $- in
+	*i*) ;;
+	*) return;;
+esac
 ########################### ENVIRONMENT VARIABLES ##############################
 export HISTSIZE=-1
 export HISTFILESIZE=-1
