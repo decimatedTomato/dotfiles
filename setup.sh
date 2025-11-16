@@ -27,18 +27,18 @@ insert_dotfile() {
 }
 
 case "$(uname -sr)" in
-	Linux*)
-		source $script_dir/setup_linux.sh
-		# Special keybinds for mac keyboard
-		ask "Are you using a regular (not apple) keyboard?" \
-			&& source $script_dir/setup_linux_mac.sh
-		;;
-	Darwin*)
-		source $script_dir/setup_osx.sh
-		;;
 	Linux*Microsoft*)
 		source $script_dir/setup_linux.sh
 		source $script_dir/setup_wsl.sh
+		;;
+	Linux*)
+		source $script_dir/setup_linux.sh
+		ask "Are you using a regular (not apple) keyboard?" \
+			|| source $script_dir/setup_mac.sh
+		;;
+	Darwin*)
+		source $script_dir/setup_osx.sh
+		source $script_dir/setup_mac.sh
 		;;
 	CYGWIN*|MINGW*|MINGW32*|MSYS*)
 		source $script_dir/setup_msys.sh

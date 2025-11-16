@@ -22,10 +22,9 @@ vmap	<C-S>	<C-C>:update<CR>
 imap	<C-S>	<C-O>:update<CR>
 
 " Control + x to exit
-map	<C-X>	:x<CR>
-" nmap	<C-X>	:x<CR>
-" vmap	<C-X>	<C-C>:x<CR>
-" imap	<C-X>	<C-O>:x<CR>
+nmap	<C-X>	:x<CR>
+vmap	<C-X>	<C-C>:x<CR>
+imap	<C-X>	<C-O>:x<CR>
 
 " Search and replace
 " No escaping special characters
@@ -40,13 +39,37 @@ vmap	<M-k>	:m'<-2<cr>`>my`<mzgv`yo`z
 " Alt + p to paste around selection
 " Last yank appends, second last yank prepends
 " It isn't ready yet
-vmap	<M-P>	p
+" vmap	<M-P>	p
 
 " Wish list
-" Indenting/unindenting
-" Comment lines (toggle)
-" Find references (ctags anyone?)
+" - Indenting/unindenting
+" - Comment lines (toggle)
+" - Find references (vim-lsp)
 
+" Plugins
+call plug#begin()
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+Plug 'vim-scripts/VimCompletesMe'
+call plug#end()
+
+" Language server stuff
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+endfunction
+
+augroup lsp_install
+    au!
+    autocmd User on_lsp_buffer_enabled call s:on_lsp_buffer_en    abled
+augroup END
+
+
+" Load OS specific vim configuration
+runtime!	mac.vim
+runtime!	windows.vim
+
+" Load local specific vim configuration
 if filereadable(glob('~/.vimrc_local'))
 	source ~/.vimrc_local
 endif

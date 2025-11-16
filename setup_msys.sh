@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-insert_dotfile .gitconfig
-insert_dotfile .bashrc
+safely_insert_dotfile .gitconfig
+safely_insert_dotfile .bashrc
 mv ~/.bashrc ~/.bash/bashrc.main
 ln -sf $script_dir/.bashrc_msys ~/.bashrc
-insert_dotfile .tmux.conf
-insert_dotfile .vimrc
+safely_insert_dotfile .tmux.conf
+safely_insert_dotfile .vimrc
 ln -sf $script_dir/.alias ~/.alias
 

@@ -28,10 +28,8 @@ install_javascript() {
 }
 
 install_vim_plug() {
-	local vim_plug_dir=~/git/vim-plug
-	git clone --depth 1 --branch 0.14.0 https://github.com/junegunn/vim-plug.git $vim_plug_dir
-	cp $vim_plug_dir/plug.vim ~/.vim/autoload/plug.vim
-	cp $vim_plug_dir/plug.vim ~/.local/share/nvim/site/autoload/plug.vim
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
 install_tldr() {
@@ -63,11 +61,11 @@ package_install() {
 	$install_command "$@"
 }
 
-insert_dotfile .gitconfig
-insert_dotfile .bashrc
-insert_dotfile .tmux.conf
-insert_dotfile .vimrc
-ln -sf $script_dir/.alias ~/.alias
+safely_insert_dotfile .gitconfig
+safely_insert_dotfile .bashrc
+safely_insert_dotfile .tmux.conf
+safely_insert_dotfile .vimrc
+insert_dotfile .alias
 
 ask "Install *curl* to make network requests?" && package_install curl
 ask "Install some *c* toolchain stuff?" && install_c

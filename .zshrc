@@ -13,8 +13,13 @@ setopt EXTENDED_HISTORY
 ################################################################################
 
 source ~/.alias
+[ -f ~/.bashrc_local ] && source ~/.bashrc_local
 
-[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
+[ -f ~/.config/fzf/fzf.bash ] && source ~/.config/fzf/fzf.bash
 [ -f ~/git/fzf-git/fzf-git.sh ]  && source ~/git/fzf-git/fzf-git.sh
 
-[ -f ~/.zshrc_local ] && source ~/.zshrc_local
+[ -f ~/.cargo/env ] && source "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -28,10 +28,11 @@ install_fzf() {
 }
 
 install_vim_plug() {
-	local vim_plug_dir=~/git/vim-plug
-	git clone --depth 1 --branch 0.14.0 https://github.com/junegunn/vim-plug.git $vim_plug_dir
-	cp $vim_plug_dir/plug.vim ~/.vim/autoload/plug.vim
-	cp $vim_plug_dir/plug.vim ~/.local/share/nvim/site/autoload/plug.vim
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+	sh -c 'curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 }
 
 install_karabiner() {
@@ -58,13 +59,13 @@ install_scroll_reverser() {
 	read -r
 }
 
-insert_dotfile .gitconfig
-insert_dotfile .bashrc
-insert_dotfile .zshrc
-insert_dotfile .tmux.conf
-insert_dotfile .vimrc
-insert_dotfile .config/nvim
-ln -sf $script_dir/.alias ~/.alias
+safely_insert_dotfile .gitconfig
+safely_insert_dotfile .bashrc
+safely_insert_dotfile .zshrc
+safely_insert_dotfile .tmux.conf
+safely_insert_dotfile .vimrc
+safely_insert_dotfile .config/nvim
+insert_dotfile .alias
 
 ask "Do you wish to install the package manager brew?" && install_brew \
 	|| echo 'Then we are done here' && exit 0

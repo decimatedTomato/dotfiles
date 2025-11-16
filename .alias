@@ -17,5 +17,4 @@ alias py="python3"
 alias v='source ./venv/bin/activate'
 alias vv='python -m venv venv && v'
 
-alias cmake_grep='grep -r --exclude-dir build --include '\''*.cmake'\'' --include '\''CMakeLists.txt'\''
-
+alias cmake_grep='grep -r --exclude-dir build --include '\''*.cmake'\'' --include '\''CMakeLists.txt'\'
