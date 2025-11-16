@@ -8,7 +8,7 @@ ask() {
 	local prompt="${1/'*'/${bold}}"
 	prompt="${prompt/'*'/${normal}}"
 	while true; do
-		read -p "$prompt ([y]/n) " -r
+		read -p "$prompt ([y]/n) " -r reply
 		reply=${reply:-"y"}
 		if [[ $reply =~ ^[Yy]$ ]]; then
 			return 1
