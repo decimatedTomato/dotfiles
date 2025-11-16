@@ -20,7 +20,7 @@ ask() {
 
 insert_dotfile() {
 	[ -f ~/$1 ] && [ ! -L ~/$1 ] && mv ~/$1 ~/"$1"_local
-	ln -s $script_dir/$1 ~/$1
+	ln -sf $script_dir/$1 ~/$1
 }
 
 case "$(uname -sr)" in
