@@ -64,3 +64,22 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.hl.on_yank()
 	end,
 })
+
+-- Plugins
+vim.call('plug#begin')
+Plug('prabirshrestha/vim-lsp')
+Plug('mattn/vim-lsp-settings')
+
+Plug('vim-scripts/VimCompletesMe')
+vim.call('plug#end')
+
+-- This is vimscript
+-- " Language server stuff
+-- function! s:on_lsp_buffer_enabled() abort
+--     setlocal omnifunc=lsp#complete
+-- endfunction
+
+-- augroup lsp_install
+--     au!
+--     autocmd User on_lsp_buffer_enabled call s:on_lsp_buffer_en    abled
+-- augroup END
