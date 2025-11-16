@@ -71,7 +71,7 @@ ask "Install *curl* to make network requests?" && package_install curl
 ask "Install some *c* toolchain stuff?" && install_c
 ask "Install the *rust* toolchain?" && install_rust
 ask "Install the *javascript* toolchain?" && install_javascript
-ask "Install the *ocaml* toolchain?" && package_install ocaml utop
+ask "Install the *ocaml* toolchain?" && package_install ocaml
 ask "Install *tmux* the terminal multiplexer?" && package_install tmux
 ask "Install *fzf* for fuzzy finding and shell completion?" && install_fzf
 ask "Install *vim-plug*, a simple vim plugin manager?" && install_vim_plug
