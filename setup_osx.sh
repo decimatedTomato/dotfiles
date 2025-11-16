@@ -69,7 +69,7 @@ ask "Do you wish to install the package manager brew?" && install_brew
 
 ask "Install the *rust* toolchain?" && install_rust
 ask "Install the *javascript* toolchain?" && install_javascript
-ask "Install the *ocaml* toolchain?" && brew install ocaml utop
+ask "Install the *ocaml* toolchain?" && brew install ocaml
 
 ask "Install *tmux* the terminal multiplexer?" && brew install tmux
 ask "Install *neovim* the text editor?" && brew install nvim
