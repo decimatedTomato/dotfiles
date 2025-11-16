@@ -6,7 +6,7 @@ install_brew() {
 }
 
 install_rust() {
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
 }
 
 install_javascript() {
@@ -23,14 +23,12 @@ install_fzf() {
 	$fzf_dir/install --xdg --key-bindings --completion --no-update-rc --no-fish
 	local fzf_git_dir=~/git/fzf-git
 	mkdir -p $fzf_git_dir
-	git clone --depth 1 --branch c823ffd521cb4a3a65a5cf87f1b1104ef651c3de \
-		https://github.com/junegunn/fzf-git.sh.git $fzf_git_dir
+	git clone --depth 1 https://github.com/junegunn/fzf-git.sh.git $fzf_git_dir
 }
 
 install_vim_plug() {
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 	sh -c 'curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 }
