@@ -64,7 +64,7 @@ insert_dotfile .zshrc
 insert_dotfile .tmux.conf
 insert_dotfile .vimrc
 insert_dotfile .config/nvim
-ln -s $script_dir/.alias ~/.alias
+ln -sf $script_dir/.alias ~/.alias
 
 ask "Do you wish to install the package manager brew?" && install_brew \
 	|| echo 'Then we are done here' && exit 0

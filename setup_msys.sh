@@ -6,5 +6,5 @@ mv ~/.bashrc ~/.bash/bashrc.main
 ln -sf $script_dir/.bashrc_msys ~/.bashrc
 insert_dotfile .tmux.conf
 insert_dotfile .vimrc
-ln -s $script_dir/.alias ~/.alias
+ln -sf $script_dir/.alias ~/.alias
 
