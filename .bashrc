@@ -6,7 +6,7 @@ esac
 ########################### ENVIRONMENT VARIABLES ##############################
 export HISTSIZE=-1
 export HISTFILESIZE=-1
-export LESS='-j 2 --mouse --wheel-lines 2'
+export LESS='-R -j 2 --mouse --wheel-lines 2'
 export EDITOR=vim
 ################################### SETTINGS ###################################
 shopt -s histappend
