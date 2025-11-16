@@ -8,8 +8,7 @@ install_fzf() {
 	$fzf_dir/install --xdg --key-bindings --completion --no-update-rc --no-fish --no-zsh
 	local fzf_git_dir=~/git/fzf-git
 	mkdir -p $fzf_git_dir
-	git clone --depth 1 --branch c823ffd521cb4a3a65a5cf87f1b1104ef651c3de \
-		https://github.com/junegunn/fzf-git.sh.git $fzf_git_dir
+	git clone --depth 1 https://github.com/junegunn/fzf-git.sh.git $fzf_git_dir
 }
 
 install_c() {
