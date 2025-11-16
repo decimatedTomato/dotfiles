@@ -7,8 +7,7 @@ esac
 export HISTSIZE=-1
 export HISTFILESIZE=-1
 export LESS='-j 2 --mouse --wheel-lines 2'
-############################## SHELL VARIABLES #################################
-EDITOR=vim
+export EDITOR=vim
 ################################### SETTINGS ###################################
 shopt -s histappend
 ################################################################################

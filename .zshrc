@@ -7,8 +7,7 @@ esac
 export HISTSIZE=100000
 export SAVEHIST=100000
 export LESS='-j 2 --mouse --wheel-lines 2'
-############################## SHELL VARIABLES #################################
-EDITOR=vim
+export EDITOR=vim
 ################################### SETTINGS ###################################
 setopt EXTENDED_HISTORY
 ################################################################################
