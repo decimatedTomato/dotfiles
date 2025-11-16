@@ -15,7 +15,7 @@ install_fzf() {
 install_c() {
 	package_install gcc clang make cmake
 	package_install g++ \
-		|| && package_install gcc-c++
+		|| package_install gcc-c++
 }
 
 install_rust() {
