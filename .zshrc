@@ -13,7 +13,7 @@ setopt EXTENDED_HISTORY
 ################################################################################
 
 source ~/.alias
-[ -f ~/.bashrc_local ] && source ~/.bashrc_local
+[ -f ~/.zshrc_local ] && source ~/.zshrc_local
 
 [ -f ~/.config/fzf/fzf.bash ] && source ~/.config/fzf/fzf.bash
 [ -f ~/git/fzf-git/fzf-git.sh ]  && source ~/git/fzf-git/fzf-git.sh
