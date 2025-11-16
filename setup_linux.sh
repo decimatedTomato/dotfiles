@@ -47,7 +47,7 @@ get_package_install_command() {
 	if [ -x "$(command -v apt-get)" ]; then
 		echo 'sudo apt-get -y install'
 	elif [ -x "$(command -v zypper)" ]; then
-		echo 'sudo zypper -y install'
+		echo 'sudo zypper install -y'
 	elif [ -x "$(command -v pacman)" ]; then
 		echo 'sudo pacman --noconfirm -S'
 	else
