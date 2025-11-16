@@ -65,8 +65,7 @@ safely_insert_dotfile .vimrc
 safely_insert_dotfile .config/nvim
 insert_dotfile .alias
 
-ask "Do you wish to install the package manager brew?" && install_brew \
-	|| echo 'Then we are done here' && exit 0
+ask "Do you wish to install the package manager brew?" && install_brew
 
 ask "Install the *rust* toolchain?" && install_rust
 ask "Install the *javascript* toolchain?" && install_javascript
