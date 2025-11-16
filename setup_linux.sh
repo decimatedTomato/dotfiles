@@ -13,9 +13,9 @@ install_fzf() {
 }
 
 install_c() {
-	package_install gcc clang make cmake
-	package_install g++ \
-		|| package_install gcc-c++
+	$package_install gcc clang make cmake
+	$package_install g++ \
+		|| $package_install gcc-c++
 }
 
 install_rust() {
@@ -36,8 +36,8 @@ install_vim_plug() {
 }
 
 install_tldr() {
-	package_install tldr \
-		|| package_install tlrc \
+	$package_install tldr \
+		|| $package_install tlrc \
 		|| sudo cargo install tldrx && echo 'alias tldr=tldrx' >> ~/.bashrc_local
 }
 
@@ -61,13 +61,13 @@ ln -sf $script_dir/.alias ~/.alias
 ask "Install some *c* toolchain stuff?" && install_c
 ask "Install the *rust* toolchain?" && install_rust
 ask "Install the *javascript* toolchain?" && install_javascript
-ask "Install the *ocaml* toolchain?" && package_install ocaml utop
-ask "Install *tmux* the terminal multiplexer?" && package_install tmux
+ask "Install the *ocaml* toolchain?" && $package_install ocaml utop
+ask "Install *tmux* the terminal multiplexer?" && $package_install tmux
 ask "Install *fzf* for fuzzy finding and shell completion?" && install_fzf
 ask "Install *vim-plug*, a simple vim plugin manager?" && install_vim_plug
 ask "Install *tldr* to explain common usages of commands?" && install_tldr
-ask "Install *jq* to edit json?" && package_install jq
-ask "Install *tree* to display a filetree?" && package_install tree
-ask "Install *tig* to interactively view the git history?" && package_install tig
-ask "Install *htop* to interatively view processes?" && package_install htop
-ask "Install *netcat* to interact with tcp/udp sockets?" && package_install netcat
+ask "Install *jq* to edit json?" && $package_install jq
+ask "Install *tree* to display a filetree?" && $package_install tree
+ask "Install *tig* to interactively view the git history?" && $package_install tig
+ask "Install *htop* to interatively view processes?" && $package_install htop
+ask "Install *netcat* to interact with tcp/udp sockets?" && $package_install netcat
