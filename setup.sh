@@ -11,9 +11,9 @@ ask() {
 		read -p "$prompt ([y]/n) " -r reply
 		reply=${reply:-"y"}
 		if [[ $reply =~ ^[Yy]$ ]]; then
-			return 1
-		elif [[ $reply =~ ^[Nn]$ ]]; then
 			return 0
+		elif [[ $reply =~ ^[Nn]$ ]]; then
+			return 1
 		fi
 	done
 }
