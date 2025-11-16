@@ -45,7 +45,7 @@ install_xquartz() {
 	read -r
 }
 
-intall_raycast() {
+install_raycast() {
 	brew install --cask raycast
 	echo 'Go ahead and add raycast to "Open at Login" by your login items'
 	read -r
@@ -85,5 +85,5 @@ ask "Install *netcat* to interact with tcp/udp sockets?" && brew install netcat
 
 ask "Install *karabiner*, the keyboard customizer?" && install_karabiner
 ask "Install *xquartz* the X window server?" && install_xquartz
-ask "Install *raycast* for custom keybinds?" && install_raycast
+ask "Install *raycast* for custom keybinds?" && intsall_raycast
 ask "Install *scroll-reverser* in order to scroll normally?" && install_scroll_reverser
