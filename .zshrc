@@ -15,7 +15,7 @@ setopt EXTENDED_HISTORY
 source ~/.alias
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
 
-[ -f ~/.config/fzf/fzf.bash ] && source ~/.config/fzf/fzf.bash
+[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
 [ -f ~/git/fzf-git/fzf-git.sh ]  && source ~/git/fzf-git/fzf-git.sh
 
 [ -f ~/.cargo/env ] && source "$HOME/.cargo/env"
