@@ -9,7 +9,7 @@
 		CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)					\
 		git pull -r origin main && git checkout main						\
 		&& git merge $CURRENT_BRANCH && git push							\
-		git checkout $CURRENT_BRANCH 										\
+		git checkout $CURRENT_BRANCH										\
 		}; f"
 [rerere]
 	enabled = true

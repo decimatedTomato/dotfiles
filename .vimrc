@@ -24,7 +24,7 @@ imap	<C-S>	<C-O>:update<CR>
 " Control + x to exit
 map	<C-X>	:x<CR>
 " nmap	<C-X>	:x<CR>
-" vmap	<C-X> 	<C-C>:x<CR>
+" vmap	<C-X>	<C-C>:x<CR>
 " imap	<C-X>	<C-O>:x<CR>
 
 " Search and replace
