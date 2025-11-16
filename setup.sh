@@ -18,8 +18,11 @@ ask() {
 	done
 }
 
-insert_dotfile() {
+safely_insert_dotfile() {
 	[ -f ~/$1 ] && [ ! -L ~/$1 ] && mv ~/$1 ~/"$1"_local
+	ln -sf $script_dir/$1 ~/$1
+}
+insert_dotfile() {
 	ln -sf $script_dir/$1 ~/$1
 }
 

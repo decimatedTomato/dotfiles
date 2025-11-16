@@ -58,6 +58,7 @@ insert_dotfile .tmux.conf
 insert_dotfile .vimrc
 ln -sf $script_dir/.alias ~/.alias
 
+ask "Install *curl* to make network requestss?" && $package_install curl
 ask "Install some *c* toolchain stuff?" && install_c
 ask "Install the *rust* toolchain?" && install_rust
 ask "Install the *javascript* toolchain?" && install_javascript
