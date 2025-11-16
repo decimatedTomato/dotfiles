@@ -56,6 +56,7 @@ insert_dotfile .gitconfig
 insert_dotfile .bashrc
 insert_dotfile .tmux.conf
 insert_dotfile .vimrc
+ln -s $script_dir/.alias ~/.alias
 
 ask "Install some *c* toolchain stuff?" && install_c
 ask "Install the *rust* toolchain?" && install_rust
