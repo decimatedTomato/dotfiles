@@ -6,7 +6,7 @@ ask() {
 	local bold=$(tput bold)
 	local normal=$(tput sgr0)
 	local prompt="${1/'*'/${bold}}"
-	prompt="${prompt/'*'/{normal}}"
+	prompt="${prompt/'*'/${normal}}"
 	while true; do
 		read -p "$prompt ([y]/n) " -r
 		reply=${reply:-"y"}
