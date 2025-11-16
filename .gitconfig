@@ -3,11 +3,13 @@
 [alias]
 	conflicts = "diff --name-only --diff-filter=U --relative"
 	changed = "diff-tree --no-commit-id --name-only HEAD -r"
-	pushupstream = "!f() { git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD); }; f"
-	pushmain = "!f() {
-		CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-		git pull -r origin main && git checkout main && git merge $CURRENT_BRANCH && git push
-		git checkout $CURRENT_BRANCH 
+	pushupstream = "!f() { git push --set-upstream origin					\
+		$(git rev-parse --abbrev-ref HEAD); }; f"
+	pushmain = "!f() {														\
+		CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)					\
+		git pull -r origin main && git checkout main						\
+		&& git merge $CURRENT_BRANCH && git push							\
+		git checkout $CURRENT_BRANCH 										\
 		}; f"
 [rerere]
 	enabled = true
