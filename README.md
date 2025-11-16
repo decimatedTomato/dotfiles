@@ -21,6 +21,8 @@
 	6. Zsh
 
 ## TODO
+- Add check before prompting for installation of tools in case tool already exists on system
+- Improve vim settings
 - Install devtools a user might want
 	- Fzf for vim
 - Setup up environment variables to get back and forth between windows and wsls

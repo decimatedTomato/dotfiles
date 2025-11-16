@@ -14,8 +14,8 @@ install_fzf() {
 
 install_c() {
 	package_install gcc clang make cmake
-	package_install g++
-	[ $? -ne 0 ] && package_install gcc-c++
+	package_install g++ \
+		|| && package_install gcc-c++
 }
 
 install_rust() {
@@ -36,9 +36,9 @@ install_vim_plug() {
 }
 
 install_tldr() {
-	package_install tldr
-	[ $? -ne 0 ] && package_install tlrc
-	[ $? -ne 0 ] && sudo cargo install tldrx && echo 'alias tldr=tldrx' >> ~/.bashrc
+	package_install tldr \
+		|| package_install tlrc \
+		|| sudo cargo install tldrx && echo 'alias tldr=tldrx' >> ~/.bashrc_local
 }
 
 if [ -x "$(command -v apt-get)" ]; then
