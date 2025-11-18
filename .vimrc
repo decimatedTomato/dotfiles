@@ -1,5 +1,9 @@
+" Load OS specific vim configuration
+runtime!	mac.vim
+runtime!	windows.vim
+
 set mouse=a 
-set clipboard=unnamedplus
+set clipboard=unnamed
 set number relativenumber
 set hlsearch
 set showmatch
@@ -51,7 +55,7 @@ call plug#begin()
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 
-Plug 'vim-scripts/VimCompletesMe'
+"Plug 'vim-scripts/VimCompletesMe'
 call plug#end()
 
 " Language server stuff
