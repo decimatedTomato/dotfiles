@@ -12,7 +12,7 @@ set showmatch
 nmap	<Esc>	:noh<cr>
 
 " Alt + x to toggle number display
-map	<M-Z>	:let [&nu, &rnu] = [!&nu, !&rnu]<CR>
+map	<M-X>	:let [&nu, &rnu] = [!&nu, !&rnu]<CR>
 
 " Alt + z to toggle wrap
 map	<M-Z>	:set wrap!<CR>
@@ -55,6 +55,7 @@ call plug#begin()
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 
+" I found this one annoying cause it overwrote tab
 "Plug 'vim-scripts/VimCompletesMe'
 call plug#end()
 
@@ -67,11 +68,6 @@ augroup lsp_install
     au!
     autocmd User on_lsp_buffer_enabled call s:on_lsp_buffer_en    abled
 augroup END
-
-
-" Load OS specific vim configuration
-runtime!	mac.vim
-runtime!	windows.vim
 
 " Load local specific vim configuration
 if filereadable(glob('~/.vimrc_local'))
