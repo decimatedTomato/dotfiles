@@ -12,7 +12,9 @@ export EDITOR=vim
 setopt EXTENDED_HISTORY
 ################################################################################
 
+[ -f ~/.config/path.sh ] && source ~/.config/path.sh
 source ~/.alias
+
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
 
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+
+
 install_fzf() {
 	local fzf_dir=~/git/fzf
 	mkdir -p $fzf_dir
@@ -66,6 +68,11 @@ safely_insert_dotfile .bashrc
 safely_insert_dotfile .tmux.conf
 safely_insert_dotfile .vimrc
 insert_dotfile .alias
+
+# Add bin to PATH
+cat > ~/.config/path.sh << EOF
+PATH=$script_dir/bin:$script_dir/bin:\$PATH
+EOF
 
 ask "Install *curl* to make network requests?" && package_install curl
 ask "Install some *c* toolchain stuff?" && install_c

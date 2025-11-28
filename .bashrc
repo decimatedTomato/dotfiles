@@ -10,9 +10,12 @@ export LESS='-R -j 2 --mouse --wheel-lines 2'
 export EDITOR=vim
 ################################### SETTINGS ###################################
 shopt -s histappend
+shopt -s direxpand
 ################################################################################
 
+[ -f ~/.config/path.sh ] && source ~/.config/path.sh
 source ~/.alias
+
 [ -f ~/.bashrc_local ] && source ~/.bashrc_local
 
 [ -f ~/.config/fzf/fzf.bash ] && source ~/.config/fzf/fzf.bash

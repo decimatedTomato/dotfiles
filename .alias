@@ -24,7 +24,14 @@ alias py="python3"
 alias v='source ./venv/bin/activate'
 alias vv='python -m venv venv && v'
 
-alias sanetree='tree -a -I '\''venv|node_modules|build|target|.git'\'' --gitignore'
-alias cmake_grep='grep -r --exclude-dir build --include '\''*.cmake'\'' --include '\''CMakeLists.txt'\'
+
+
+alias path='echo -e ${PATH//:/\\n}'
+alias sanetree='tree -a -I "venv|node_modules|build|target|.git" --gitignore'
+alias cmake_grep='grep -r --exclude-dir build --include "*.cmake" --include "CMakeLists.txt"
+
 # Wish for an alias or function that shows a diff between a file and a file after its swap file is applied
+alias vimview='vim -R'
+alias vimin='vim -'
+alias vim_hotreload='vim -c "vnew && vnew"'
 

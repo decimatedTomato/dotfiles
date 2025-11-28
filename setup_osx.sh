@@ -65,6 +65,11 @@ safely_insert_dotfile .vimrc
 safely_insert_dotfile .config/nvim
 insert_dotfile .alias
 
+# Add bin to PATH
+cat > ~/.config/path.sh << EOF
+PATH=$script_dir/bin:$script_dir/bin:\$PATH
+EOF
+
 ask "Do you wish to install the package manager brew?" && install_brew
 
 ask "Install the *rust* toolchain?" && install_rust

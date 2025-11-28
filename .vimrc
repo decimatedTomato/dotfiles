@@ -52,8 +52,8 @@ vmap	<M-k>	:m'<-2<cr>`>my`<mzgv`yo`z
 
 " Plugins
 call plug#begin()
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'mattn/vim-lsp-settings'
 
 " I found this one annoying cause it overwrote tab
 "Plug 'vim-scripts/VimCompletesMe'
