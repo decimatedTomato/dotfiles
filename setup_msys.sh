@@ -10,5 +10,5 @@ ln -sf $script_dir/.alias ~/.alias
 
 # Add bin to PATH
 cat > ~/.config/path.sh << EOF
-PATH=$script_dir/bin:$script_dir/bin:\$PATH
+PATH=$script_dir/bin:$script_scripts/bin:\$PATH
 EOF

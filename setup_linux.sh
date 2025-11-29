@@ -71,7 +71,7 @@ insert_dotfile .alias
 
 # Add bin to PATH
 cat > ~/.config/path.sh << EOF
-PATH=$script_dir/bin:$script_dir/bin:\$PATH
+PATH=$script_dir/bin:$script_dir/scripts:\$PATH
 EOF
 
 ask "Install *curl* to make network requests?" && package_install curl

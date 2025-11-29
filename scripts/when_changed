@@ -17,7 +17,12 @@ if __name__ == '__main__':
 	command_to_run = sys.argv[1]
 	files_to_check = sys.argv[2:]
 	interval_seconds = 0.5
-	last_modified_times = {file: os.stat(file).st_mtime_ns for file in files_to_check if os.path.isfile(file)}
+	last_modified_times = {
+		file: os.stat(file).st_mtime_ns
+		if os.path.isfile(file)
+		else None
+		for file in files_to_check
+	}
 	while True:
 		sleep(interval_seconds)
 		print(last_modified_times.items())
