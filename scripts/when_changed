@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+from time import sleep
+
+help_text = """\
+Usage: when_changed COMMAND [FILE]...
+Execute COMMAND whenever any FILE is modified.
+Example: when_changed 'cc -E src/main.c > main.i' 'src/main.c'
+"""
+
+if __name__ == '__main__':
+	if len(sys.argv) < 3:
+		print(help_text, end='')
+		exit(1)
+	command_to_run = sys.argv[1]
+	files_to_check = sys.argv[2:]
+	interval_seconds = 0.5
+	last_modified_times = {file: os.stat(file).st_mtime_ns for file in files_to_check if os.path.isfile(file)}
+	while True:
+		sleep(interval_seconds)
+		print(last_modified_times.items())
+		for file, last_modified_time in last_modified_times.items():
+			new_last_modified_time = os.stat(file).st_mtime_ns
+			if  new_last_modified_time != last_modified_time:
+				print(f"'{file}' changed at {new_last_modified_time}. Running: '{command_to_run}'")
+				os.system(command_to_run)
+				last_modified_times = {file: os.stat(file).st_mtime_ns for file in files_to_check if os.path.isfile(file)}
+				continue
+
