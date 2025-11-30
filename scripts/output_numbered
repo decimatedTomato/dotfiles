@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Redirect output to the given file
+# if the file exists redirect to next counter instead
+
+help () {
+	cat >&2 <<-EOF
+	Usage: ${0##*/} [FILE]
+	Redirect output to FILE.
+	Example: cat foo | ${0##*/} 'bar'
+	This creates bar, bar_00, bar_01, ...
+	EOF
+}
+
+if [ $# -ne 1 ]; then
+	help
+	exit 1
+fi
+
+filename="$1"
+counter=0
+
+while [ -e $filename ]; do
+	printf -v filename '%s_%02d' "$1" "$(( counter++ ))"
+done
+
+cat <&0 > "$filename"
+
