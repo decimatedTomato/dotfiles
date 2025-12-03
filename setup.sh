@@ -2,6 +2,13 @@
 
 script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+all_installed() {
+	for binary in "$@"; do
+		command -v $binary || return 1
+	done
+}
+
+
 ask() {
 	local bold=$(tput bold)
 	local normal=$(tput sgr0)

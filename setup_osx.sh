@@ -71,25 +71,29 @@ cat > ~/.config/path.sh << EOF
 PATH=$script_dir/bin:$script_scripts/bin:\$PATH
 EOF
 
-ask "Do you wish to install the package manager brew?" && install_brew
+command -v brew >/dev/null || (ask "Do you wish to install the package manager brew?" && install_brew)
 
-ask "Install the *rust* toolchain?" && install_rust
-ask "Install the *javascript* toolchain?" && install_javascript
-ask "Install the *ocaml* toolchain?" && brew install ocaml
+all_installed rustup cargo rustc \
+       || (ask "Install the *rust* toolchain?" && install_rust)
+all_installed nvm node npm \
+	|| (ask "Install the *javascript* toolchain?" && install_javascript)
+command -v ocaml >/dev/null || (ask "Install the *ocaml* toolchain?" && brew install ocaml)
 
-ask "Install *tmux* the terminal multiplexer?" && brew install tmux
-ask "Install *neovim* the text editor?" && brew install nvim
+command -v tmux >/dev/null || (ask "Install *tmux* the terminal multiplexer?" && brew install tmux)
+command -v nvim >/dev/null || (ask "Install *neovim* the text editor?" && brew install nvim)
 
-ask "Install *fzf* for fuzzy finding and shell completion?" && install_fzf
-ask "Install *vim-plug*, a simple vim plugin manager?" && install_vim_plug
-ask "Install *tldr* to explain common usages of commands?" && brew install tldr
-ask "Install *jq* to edit json?" && brew install jq
-ask "Install *tree* to display a filetree?" && brew install tree
-ask "Install *tig* to interactively view the git history?" && brew install tig
-ask "Install *htop* to interatively view processes?" && brew install htop
-ask "Install *netcat* to interact with tcp/udp sockets?" && brew install netcat
+command -v fzf >/dev/null || (ask "Install *fzf* for fuzzy finding and shell completion?" && install_fzf)
+[[ -f .vim/autoload/plug.vim ]] \
+	|| (ask "Install *vim-plug*, a simple vim plugin manager?" && install_vim_plug)
 
-ask "Install *karabiner*, the keyboard customizer?" && install_karabiner
-ask "Install *xquartz* the X window server?" && install_xquartz
-ask "Install *raycast* for custom keybinds?" && intsall_raycast
-ask "Install *scroll-reverser* in order to scroll normally?" && install_scroll_reverser
+command -v tldr >/dev/null || (ask "Install *tldr* to explain common usages of commands?" && brew install tldr)
+command -v jq >/dev/null || (ask "Install *jq* to edit json?" && brew install jq)
+command -v tree >/dev/null || (ask "Install *tree* to display a filetree?" && brew install tree)
+command -v tig >/dev/null || (ask "Install *tig* to interactively view the git history?" && brew install tig)
+command -v htop >/dev/null || (ask "Install *htop* to interatively view processes?" && brew install htop)
+command -v nc >/dev/null || (ask "Install *netcat* to interact with tcp/udp sockets?" && brew install netcat)
+
+command -v karabiner >/dev/null || (ask "Install *karabiner*, the keyboard customizer?" && install_karabiner)
+command -v xquartz >/dev/null || (ask "Install *xquartz* the X window server?" && install_xquartz)
+command -v raycast >/dev/null || (ask "Install *raycast* for custom keybinds?" && intsall_raycast)
+command -v scroll-reverser >/dev/null || (ask "Install *scroll-reverser* in order to scroll normally?" && install_scroll_reverser)

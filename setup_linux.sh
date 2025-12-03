@@ -75,17 +75,22 @@ cat > ~/.config/path.sh << EOF
 PATH=$script_dir/bin:$script_dir/scripts:\$PATH
 EOF
 
-ask "Install *curl* to make network requests?" && package_install curl
-ask "Install some *c* toolchain stuff?" && install_c
-ask "Install the *rust* toolchain?" && install_rust
-ask "Install the *javascript* toolchain?" && install_javascript
-ask "Install the *ocaml* toolchain?" && package_install ocaml
-ask "Install *tmux* the terminal multiplexer?" && package_install tmux
-ask "Install *fzf* for fuzzy finding and shell completion?" && install_fzf
-ask "Install *vim-plug*, a simple vim plugin manager?" && install_vim_plug
-ask "Install *tldr* to explain common usages of commands?" && install_tldr
-ask "Install *jq* to edit json?" && package_install jq
-ask "Install *tree* to display a filetree?" && package_install tree
-ask "Install *tig* to interactively view the git history?" && package_install tig
-ask "Install *htop* to interatively view processes?" && package_install htop
-ask "Install *netcat* to interact with tcp/udp sockets?" && install_netcat
+command -v curl >/dev/null || (ask "Install *curl* to make network requests?" && package_install curl)
+all_installed gcc clang make cmake g++ clang++ \
+	|| (ask "Install some *c* toolchain stuff?" && install_c)
+all_installed rustup cargo rustc \
+	|| (ask "Install the *rust* toolchain?" && install_rust)
+all_installed nvm node npm \
+	|| (ask "Install the *javascript* toolchain?" && install_javascript)
+command -v ocaml >/dev/null || (ask "Install the *ocaml* toolchain?" && package_install ocaml)
+command -v tmux >/dev/null || (ask "Install *tmux* the terminal multiplexer?" && package_install tmux)
+command -v fzf >/dev/null || (ask "Install *fzf* for fuzzy finding and shell completion?" && install_fzf)
+[[ -f .vim/autoload/plug.vim ]] \
+	|| (ask "Install *vim-plug*, a simple vim plugin manager?" && install_vim_plug)
+command -v tldr >/dev/null || (ask "Install *tldr* to explain common usages of commands?" && install_tldr)
+command -v jq >/dev/null || (ask "Install *jq* to edit json?" && package_install jq)
+command -v tree >/dev/null || (ask "Install *tree* to display a filetree?" && package_install tree)
+command -v tig >/dev/null || (ask "Install *tig* to interactively view the git history?" && package_install tig)
+command -v htop >/dev/null || (ask "Install *htop* to interatively view processes?" && package_install htop)
+command -v nc >/dev/null || (ask "Install *netcat* to interact with tcp/udp sockets?" && install_netcat)
+
