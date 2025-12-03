@@ -1,6 +1,7 @@
 [credential]
 	helper = store
 [alias]
+	cherrypick = "cherry-pick"
 	conflicts = "diff --name-only --diff-filter=U --relative"
 	changed = "diff-tree --no-commit-id --name-only HEAD -r"
 	pushupstream = "!f() { git push --set-upstream origin					\
