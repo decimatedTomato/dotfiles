@@ -9,60 +9,65 @@ set hlsearch
 set showmatch
 
 " Disable highlight when <leader><cr> is pressed
-nmap	<Esc>	:noh<cr>
+nnoremap	<Esc>	:noh<cr>
 
 " Alt + x to toggle number display
-map	<M-X>	:let [&nu, &rnu] = [!&nu, !&rnu]<CR>
+noremap	<M-X>	:let [&nu, &rnu] = [!&nu, !&rnu]<CR>
 
 " Alt + z to toggle wrap
-map	<M-Z>	:set wrap!<CR>
+noremap	<M-Z>	:set wrap!<CR>
 
 " Alt + r to re-source vimrc
-nmap	<M-R>	:source $MYVIMRC<CR>
-vmap	<M-R>	<C-C>:source $MYVIMRC<CR>
-imap	<M-R>	<C-O>:source $MYVIMRC<CR>
+nnoremap	<M-R>	:source $MYVIMRC<CR>
+vnoremap	<M-R>	<C-C>:source $MYVIMRC<CR>
+inoremap	<M-R>	<C-O>:source $MYVIMRC<CR>
+
+" Control + c to exit without saving
+nnoremap	<C-C>	:qa!<CR>
+vnoremap	<C-C>	<C-C>:qa!<CR>
+inoremap	<C-C>	<C-O>:qa!<CR>
 
 " Control + s to save
-nmap	<C-S>	:update<CR>
-vmap	<C-S>	<C-C>:update<CR>
-imap	<C-S>	<C-O>:update<CR>
+nnoremap	<C-S>	:update<CR>
+vnoremap	<C-S>	<C-C>:update<CR>
+inoremap	<C-S>	<C-O>:update<CR>
 
 " Control + x to exit
-nmap	<C-X>	:x<CR>
-vmap	<C-X>	<C-C>:x<CR>
-imap	<C-X>	<C-O>:x<CR>
+nnoremap	<C-X>	:x<CR>
+vnoremap	<C-X>	<C-C>:x<CR>
+inoremap	<C-X>	<C-O>:x<CR>
 
 " Search and replace
 " No escaping special characters
 " No yank default value
-vmap	<C-H>	"ry:%s/<C-R>"r//g<Left><Left>
+vnoremap	<C-H>	"ry:%s/<C-R>"r//g<Left><Left>
 
 " Alt + p to paste around selection
 " Last yank appends, second last yank prepends
 " It isn't ready yet
-" vmap	<M-P>	p
+" vnoremap	<M-P>	p
 
 " Open a terminal split and make it real small
 "set	termwinkey=<ESC>
 " Control + t to toggle terminal
-nmap	<C-T>	:3new<CR>:wincmd x<CR>:wincmd j<CR>:term ++curwin ++kill=term<CR>
-tmap	<C-T>	\<C-W>:q!<CR>
+nnoremap	<C-T>	:3new<CR>:wincmd x<CR>:wincmd j<CR>:term ++curwin ++kill=term<CR>
+tnoremap	<C-T>	\<C-W>:q!<CR>
 
 " Alt + hjkl to switch to window that direction (These do not work in terminal mode)
-map	<M-H>	<C-W>h
-map	<M-J>	<C-W>j
-map	<M-K>	<C-W>k
-map	<M-L>	<C-W>l
+noremap	<M-H>	<C-W>h
+noremap	<M-J>	<C-W>j
+noremap	<M-K>	<C-W>k
+noremap	<M-L>	<C-W>l
 
 
 
 " Alt + j/k to move line or selected lines up/down (These don't work)
-"nnoremap	<M-J>	:m .+1<CR>==
-"nnoremap	<M-K>	:m .-2<CR>==
-"inoremap	<M-J>	<Esc>:m .+1<CR>==gi
-"inoremap	<M-K>	<Esc>:m .-2<CR>==gi
-"vnoremap	<M-J>	:m '>+1<CR>gv=gv
-"vnoremap	<M-K>	:m '<-2<CR>gv=gv
+"nnorenoremap	<M-J>	:m .+1<CR>==
+"nnorenoremap	<M-K>	:m .-2<CR>==
+"inorenoremap	<M-J>	<Esc>:m .+1<CR>==gi
+"inorenoremap	<M-K>	<Esc>:m .-2<CR>==gi
+"vnorenoremap	<M-J>	:m '>+1<CR>gv=gv
+"vnorenoremap	<M-K>	:m '<-2<CR>gv=gv
 
 " Wish list
 " - Indenting/unindenting

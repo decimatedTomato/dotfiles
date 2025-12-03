@@ -6,7 +6,8 @@ mv ~/.bashrc ~/.bash/bashrc.main
 ln -sf $script_dir/.bashrc_msys ~/.bashrc
 safely_insert_dotfile .tmux.conf
 safely_insert_dotfile .vimrc
-ln -sf $script_dir/.alias ~/.alias
+insert_dotfile .alias
+insert_dotfile .lesskey
 
 # Add bin to PATH
 cat > ~/.config/path.sh << EOF

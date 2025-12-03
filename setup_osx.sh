@@ -64,6 +64,7 @@ safely_insert_dotfile .tmux.conf
 safely_insert_dotfile .vimrc
 safely_insert_dotfile .config/nvim
 insert_dotfile .alias
+insert_dotfile .lesskey
 
 # Add bin to PATH
 cat > ~/.config/path.sh << EOF
