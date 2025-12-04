@@ -30,6 +30,7 @@ cdla () { cd $1; la; }
 cdll () { cd $1; ll; }
 mkcd () { mkdir -p $1; cd $1; }
 mkedit () { mkdir -p "$(dirname -- $1)"; $EDITOR "$@"; }
+mksh () { [[ $1 =~ ".*\.sh$" ]] && filename="$1" || filename="$1".sh; echo -e '#!/usr/bin/env bash\n' > "$filename"; chmod +x "$filename"; }
 
 alias path='echo -e ${PATH//:/\\n}'
 alias sanetree='tree -a -I "venv|node_modules|build|target|.git" --gitignore'
