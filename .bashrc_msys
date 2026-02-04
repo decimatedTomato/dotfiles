@@ -1,7 +1,8 @@
-source ~/.bash/bashrc.main
 ########################### ENVIRONMENT VARIABLES ##############################
 # TODO record positions of wsls as environment variables
 ################################### SETTINGS ###################################
 ################################################################################
 
 alias python='winpty python.exe'
+alias copy='iconv -f utf-8 -t utf-16le | clip.exe'
+alias paste='powershell.exe -command Get-Clipboard'

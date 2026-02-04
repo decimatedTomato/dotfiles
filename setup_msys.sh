@@ -2,8 +2,7 @@
 
 safely_insert_dotfile .gitconfig
 safely_insert_dotfile .bashrc
-mv ~/.bashrc ~/.bash/bashrc.main
-ln -sf $script_dir/.bashrc_msys ~/.bashrc
+ln -sf $script_dir/.bashrc_msys ~/.bash/.bashrc_os
 safely_insert_dotfile .tmux.conf
 safely_insert_dotfile .vimrc
 insert_dotfile .alias

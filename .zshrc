@@ -12,6 +12,9 @@ export EDITOR=vim
 setopt EXTENDED_HISTORY
 ################################################################################
 
+alias copy='pbcopy'
+alias paste='pbpaste'
+
 [ -f ~/.config/path.sh ] && source ~/.config/path.sh
 source ~/.alias
 

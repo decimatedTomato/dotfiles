@@ -17,7 +17,7 @@ shopt -s direxpand
 source ~/.alias
 
 [ -f ~/.bashrc_local ] && source ~/.bashrc_local
-[ -f ~/.bash/.bashrc_os ] && source ~/.bash/bashrc_os
+[ -f ~/.bash/.bashrc_os ] && source ~/.bash/.bashrc_os
 
 [ -f ~/.config/fzf/fzf.bash ] && source ~/.config/fzf/fzf.bash
 [ -f ~/git/fzf-git/fzf-git.sh ]  && source ~/git/fzf-git/fzf-git.sh
