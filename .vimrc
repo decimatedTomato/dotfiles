@@ -7,6 +7,8 @@ set clipboard=unnamed
 set number relativenumber
 set hlsearch
 set showmatch
+set undodir=~/.vim/undo_dir
+set undofile
 
 " Disable highlight when <leader><cr> is pressed
 nnoremap	<Esc>	:noh<cr>
@@ -40,7 +42,7 @@ inoremap	<C-X>	<C-O>:x<CR>
 " Search and replace
 " No escaping special characters
 " No yank default value
-vnoremap	<C-H>	"ry:%s/<C-R>"r//g<Left><Left>
+vnoremap	<C-H>	"ry:%s/<C-R>"//g<Left><Left>
 
 " Alt + p to paste around selection
 " Last yank appends, second last yank prepends
@@ -90,7 +92,7 @@ endfunction
 
 augroup lsp_install
     au!
-    autocmd User on_lsp_buffer_enabled call s:on_lsp_buffer_en    abled
+    autocmd User on_lsp_buffer_enabled call s:on_lsp_buffer_enabled
 augroup END
 
 " Load local specific vim configuration

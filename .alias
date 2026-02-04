@@ -17,11 +17,12 @@ alias gb='git branch'
 alias gl='git log --pretty=oneline'
 alias gcp='git cherry-pick'
 
-alias ll="ls -al"
-alias la="ls -a"
+alias ll='ls -al'
+alias lh='ls -alh'
+alias la='ls -a'
 
-alias python="python3"
-alias py="python3"
+alias python='python3'
+alias py='python3'
 v () { source ${1:-./venv}/bin/activate; }
 alias vv='python -m venv venv && v'
 
@@ -33,7 +34,7 @@ mkedit () { mkdir -p "$(dirname -- $1)"; $EDITOR "$@"; }
 mksh () { [[ $1 =~ ".*\.sh$" ]] && filename="$1" || filename="$1".sh; echo -e '#!/usr/bin/env bash\n' > "$filename"; chmod +x "$filename"; }
 
 alias path='echo -e ${PATH//:/\\n}'
-alias sanetree='tree -a -I "venv|node_modules|build|target|.git" --gitignore'
+alias sanetree='tree -a -I "venv|node_modules|build|target|.git"'
 alias cmake_grep='grep -r --exclude-dir build --include "*.cmake" --include "CMakeLists.txt"'
 
 alias vimview='vim -R'
