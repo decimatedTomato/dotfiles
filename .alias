@@ -37,6 +37,8 @@ alias path='echo -e ${PATH//:/\\n}'
 alias sanetree='tree -a -I "venv|node_modules|build|target|.git"'
 alias cmake_grep='grep -r --exclude-dir build --include "*.cmake" --include "CMakeLists.txt"'
 
+alias CLEAR="printf '\033[2J\033[3J\033[1;1H'"
+
 alias vimview='vim -R'
 alias vimin='vim -'
 # For some reason this leaves "^[[2;2R<CR>2R" in the terminal (maybe because of windows.vim)
