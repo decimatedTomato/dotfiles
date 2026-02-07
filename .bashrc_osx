@@ -2,5 +2,5 @@
 ################################### SETTINGS ###################################
 ################################################################################
 
-alias copy='xclip -selection clipboard'
-alias paste='xclip -o'
+alias copy='pbcopy'
+alias paste='pbpaste'

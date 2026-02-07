@@ -59,6 +59,7 @@ install_scroll_reverser() {
 
 safely_insert_dotfile .gitconfig
 safely_insert_dotfile .bashrc
+ln -sf $script_dir/.bashrc_osx ~/.bash/.bashrc_os
 safely_insert_dotfile .zshrc
 safely_insert_dotfile .tmux.conf
 safely_insert_dotfile .vimrc

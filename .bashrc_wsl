@@ -1,6 +1,9 @@
 ########################### ENVIRONMENT VARIABLES ##############################
+export DISPLAY=localhost:0
+#export DISPLAY=$(ip route list default | awk '{print $4}'):0
+export LIBGL_ALWAYS_INDIRECT=1
 ################################### SETTINGS ###################################
 ################################################################################
 
-alias copy='xclip -selection clipboard'
-alias paste='xclip -o'
+alias copy='iconv -f utf-8 -t utf-16le | clip.exe'
+alias paste='powershell.exe -command "Get-Clipboard"'

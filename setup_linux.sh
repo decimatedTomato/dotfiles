@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-
+install_gvim() {
+	mkdir -p ~/.vim/undo
+	package_install gvim
+		|| package_install vim-gtk3
+}
 
 install_fzf() {
 	local fzf_dir=~/git/fzf
@@ -77,18 +81,22 @@ cat > ~/.config/path.sh << EOF
 PATH=$script_dir/bin:$script_dir/scripts:\$PATH
 EOF
 
+command -v gvim >/dev/null || (ask "Install *gvim* to include more vim features?" && install_gvim)
 command -v curl >/dev/null || (ask "Install *curl* to make network requests?" && package_install curl)
 all_installed gcc clang make cmake g++ clang++ \
 	|| (ask "Install some *c* toolchain stuff?" && install_c)
 all_installed rustup cargo rustc \
 	|| (ask "Install the *rust* toolchain?" && install_rust)
-all_installed nvm node npm \
-	|| (ask "Install the *javascript* toolchain?" && install_javascript)
+# This check is broken
+# all_installed nvm node npm \
+# 	|| (ask "Install the *javascript* toolchain?" && install_javascript)
 command -v ocaml >/dev/null || (ask "Install the *ocaml* toolchain?" && package_install ocaml)
 command -v tmux >/dev/null || (ask "Install *tmux* the terminal multiplexer?" && package_install tmux)
-command -v fzf >/dev/null || (ask "Install *fzf* for fuzzy finding and shell completion?" && install_fzf)
-[[ -f .vim/autoload/plug.vim ]] \
-	|| (ask "Install *vim-plug*, a simple vim plugin manager?" && install_vim_plug)
+# This check is broken
+# command -v fzf >/dev/null || (ask "Install *fzf* for fuzzy finding and shell completion?" && install_fzf)
+# This check is broken
+# [[ -f .vim/autoload/plug.vim ]] \
+# 	|| (ask "Install *vim-plug*, a simple vim plugin manager?" && install_vim_plug)
 command -v tldr >/dev/null || (ask "Install *tldr* to explain common usages of commands?" && install_tldr)
 command -v jq >/dev/null || (ask "Install *jq* to edit json?" && package_install jq)
 command -v tree >/dev/null || (ask "Install *tree* to display a filetree?" && package_install tree)

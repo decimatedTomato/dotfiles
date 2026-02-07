@@ -10,6 +10,7 @@ export LESS='-R -j 2 --mouse --wheel-lines 2'
 export EDITOR=vim
 ################################### SETTINGS ###################################
 setopt EXTENDED_HISTORY
+setopt INC_APPEND_HISTORY
 ################################################################################
 
 alias copy='pbcopy'
