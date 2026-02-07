@@ -42,6 +42,7 @@ inoremap	<C-X>	<C-O>:x<CR>
 " Search and replace
 " No escaping special characters
 " No yank default value
+nnoremap	<C-H>	viw"ry:%s/<C-R>"//g<Left><Left>
 vnoremap	<C-H>	"ry:%s/<C-R>"//g<Left><Left>
 
 " Alt + p to paste around selection

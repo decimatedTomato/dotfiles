@@ -65,6 +65,7 @@ package_install() {
 
 safely_insert_dotfile .gitconfig
 safely_insert_dotfile .bashrc
+mkdir -p ~/.bash
 ln -sf $script_dir/.bashrc_linux ~/.bash/.bashrc_os
 safely_insert_dotfile .tmux.conf
 safely_insert_dotfile .vimrc
