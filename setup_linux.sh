@@ -2,7 +2,7 @@
 
 install_gvim() {
 	mkdir -p ~/.vim/undo
-	package_install gvim
+	package_install gvim \
 		|| package_install vim-gtk3
 }
 
