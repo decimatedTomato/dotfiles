@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+if [[ -z $script_dir ]]; then
+	echo 'Script should not be run on its own. Call "setup.sh".'
+	exit 1
+fi
 
 install_brew() {
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -59,9 +63,12 @@ install_scroll_reverser() {
 
 safely_insert_dotfile .gitconfig
 safely_insert_dotfile .bashrc
-ln -sf $script_dir/.bashrc_osx ~/.bash/.bashrc_os
+mkdir -p ~/.bash
+insert_dotfile .bashrc_osx .bash/.bashrc_os
 safely_insert_dotfile .zshrc
 safely_insert_dotfile .tmux.conf
+mkdir -p ~/.vim
+insert_dotfile .vim/ftplugin
 safely_insert_dotfile .vimrc
 safely_insert_dotfile .config/nvim
 insert_dotfile .alias

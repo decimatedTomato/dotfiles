@@ -1,3 +1,9 @@
 #!/bin/usr/env bash
 
-insert_dotfile .vim/mac.vim
+if [[ -z $script_dir ]]; then
+	echo 'Script should not be run on its own. Call "setup.sh".'
+	exit 1
+fi
+
+mkdir -p .vim
+insert_dotfile .vim/mac.vim .vim/os.vim

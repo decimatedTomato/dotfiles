@@ -1,6 +1,7 @@
 " Load OS specific vim configuration
-runtime!	mac.vim
-runtime!	windows.vim
+if filereadable(glob('~/.vim/os.vim'))
+	source ~/.vim/os.vim
+endif
 
 set mouse=a 
 set clipboard+=unnamed
@@ -8,11 +9,10 @@ set number relativenumber
 set signcolumn=yes
 set hlsearch
 set showmatch
-set undodir=~/.vim/undo_dir
-set undofile
-
 set undofile
 set undodir=~/.vim/undo
+
+filetype on
 
 " Leader is spacebar
 let mapleader="\<Space>"

@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [[ -z $script_dir ]]; then
+	echo 'Script should not be run on its own. Call "setup.sh".'
+	exit 1
+fi
+
 install_gvim() {
 	mkdir -p ~/.vim/undo
 	package_install gvim \
@@ -29,7 +34,7 @@ install_rust() {
 
 install_javascript() {
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-	\. "$HOME/.nvm/nvm.sh"
+	. ~/.nvm/nvm.sh
 	nvm install 24
 }
 
@@ -70,9 +75,11 @@ package_install() {
 safely_insert_dotfile .gitconfig
 safely_insert_dotfile .bashrc
 mkdir -p ~/.bash
-ln -sf $script_dir/.bashrc_linux ~/.bash/.bashrc_os
+insert_dotfile bashrc_linux .bash/.bashrc_os
 safely_insert_dotfile .tmux.conf
 safely_insert_dotfile .vimrc
+mkdir -p ~/.vim
+safely_insert_dotfile .vim/ftplugin
 insert_dotfile .alias
 insert_dotfile .lesskey
 
