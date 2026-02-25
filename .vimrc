@@ -20,8 +20,8 @@ let mapleader="\<Space>"
 " Disable highlight when <leader><cr> is pressed
 nnoremap	<Esc>	:noh<cr>
 
-" Alt + x to toggle number display
-noremap	<M-X>	:let [&nu, &rnu] = [!&nu, !&rnu]<CR>
+" Alt + y to toggle number display
+noremap	<M-Y>	:let [&nu, &rnu] = [!&nu, !&rnu]<CR>
 
 " Alt + z to toggle wrap
 noremap	<M-Z>	:set wrap!<CR>
