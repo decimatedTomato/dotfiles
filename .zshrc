@@ -11,6 +11,7 @@ export EDITOR=vim
 ################################### SETTINGS ###################################
 setopt EXTENDED_HISTORY
 setopt INC_APPEND_HISTORY
+setopt AUTOCD
 ################################################################################
 
 alias copy='pbcopy'

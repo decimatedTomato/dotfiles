@@ -23,19 +23,25 @@ alias la='ls -a'
 
 alias python='python3'
 alias py='python3'
-v () { source ${1:-./venv}/bin/activate; }
+v () { source "${1:-./venv}"/bin/activate; }
 alias vv='python -m venv venv && v'
 
-cdls () { cd $1; ls; }
-cdla () { cd $1; la; }
-cdll () { cd $1; ll; }
-mkcd () { mkdir -p $1; cd $1; }
-mkedit () { mkdir -p "$(dirname -- $1)"; $EDITOR "$@"; }
-mksh () { [[ $1 =~ ".*\.sh$" ]] && filename="$1" || filename="$1".sh; echo -e '#!/usr/bin/env bash\n' > "$filename"; chmod +x "$filename"; }
+.. () { printf -v blank '%*s' "${1:-1}" ' '; cd ${blank// /..\/} || return; }
+cdls () { cd "$1" || return; ls; }
+cdla () { cd "$1" || return; la; }
+cdll () { cd "$1" || return; ll; }
+gitroot () { cd $(git rev-parse --show-toplevel); }
+mkcd () { mkdir -p "$1"; cd "$1" || return; }
+mkedit () { mkdir -p "$(dirname -- "$1")"; $EDITOR "$@"; }
+mksh () {
+	[[ $1 =~ .*\.sh$ ]] && script="$1" || script="$1".sh
+	echo -e '#!/usr/bin/env bash\n' > "$script"
+	chmod +x "$script"
+ }
 
 alias path='echo -e ${PATH//:/\\n}'
 alias sanetree='tree -a -I "venv|node_modules|build|target|.git"'
-alias cmake_grep='grep -r --exclude-dir build --include "*.cmake" --include "CMakeLists.txt"'
+alias cmakegrep='grep -r --exclude-dir build --include "*.cmake" --include "CMakeLists.txt"'
 
 alias CLEAR="printf '\033[2J\033[3J\033[1;1H'"
 

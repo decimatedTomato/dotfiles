@@ -11,6 +11,7 @@ export EDITOR=vim
 ################################### SETTINGS ###################################
 shopt -s histappend
 shopt -s direxpand
+shopt -s autocd
 ################################################################################
 
 [ -f ~/.config/path.sh ] && source ~/.config/path.sh
