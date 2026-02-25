@@ -23,17 +23,17 @@ alias la='ls -a'
 
 alias python='python3'
 alias py='python3'
-v () { source "${1:-./venv}"/bin/activate; }
+v() { source "${1:-./venv}"/bin/activate; }
 alias vv='python -m venv venv && v'
 
-.. () { printf -v blank '%*s' "${1:-1}" ' '; cd ${blank// /..\/} || return; }
-cdls () { cd "$1" || return; ls; }
-cdla () { cd "$1" || return; la; }
-cdll () { cd "$1" || return; ll; }
-gitroot () { cd $(git rev-parse --show-toplevel); }
-mkcd () { mkdir -p "$1"; cd "$1" || return; }
-mkedit () { mkdir -p "$(dirname -- "$1")"; $EDITOR "$@"; }
-mksh () {
+up() { printf -v blank '%*s' "${1:-1}" ' '; cd ${blank// /..\/} || return; }
+cdls() { cd "$1" || return; ls; }
+cdla() { cd "$1" || return; la; }
+cdll() { cd "$1" || return; ll; }
+gitroot() { cd $(git rev-parse --show-toplevel); }
+mkcd() { mkdir -p "$1"; cd "$1" || return; }
+mkedit() { mkdir -p "$(dirname -- "$1")"; $EDITOR "$@"; }
+mksh() {
 	[[ $1 =~ .*\.sh$ ]] && script="$1" || script="$1".sh
 	echo -e '#!/usr/bin/env bash\n' > "$script"
 	chmod +x "$script"

@@ -12,6 +12,8 @@ export EDITOR=vim
 setopt EXTENDED_HISTORY
 setopt INC_APPEND_HISTORY
 setopt AUTOCD
+################################### ALIASES ####################################
+histsearch() { fc -lim "$@"}
 ################################################################################
 
 alias copy='pbcopy'
