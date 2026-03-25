@@ -27,7 +27,7 @@ noremap	<M-Y>	:let [&nu, &rnu] = [!&nu, !&rnu]<CR>
 noremap	<M-Z>	:set wrap!<CR>
 
 " Custom command Vrc that opens vimrc in new buffer
-command	Vrc	:edit $MYVIMRC
+command!	Vrc	:edit $MYVIMRC
 
 " Alt + r to re-source vimrc
 nnoremap	<M-R>	:source $MYVIMRC<CR>
