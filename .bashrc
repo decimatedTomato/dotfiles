@@ -13,7 +13,7 @@ shopt -s histappend
 shopt -s direxpand
 shopt -s autocd
 ################################### ALIASES ####################################
-histsearch() { history | grep "$@" }
+histsearch() { history | grep "$@"; }
 ################################################################################
 
 [ -f ~/.config/path.sh ] && source ~/.config/path.sh
