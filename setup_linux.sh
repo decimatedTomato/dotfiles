@@ -79,7 +79,7 @@ insert_dotfile bashrc_linux .bash/.bashrc_os
 safely_insert_dotfile .tmux.conf
 safely_insert_dotfile .vimrc
 mkdir -p ~/.vim
-safely_insert_dotfile .vim/ftplugin
+insert_dotfile .vim/ftplugin
 insert_dotfile .alias
 insert_dotfile .lesskey
 
