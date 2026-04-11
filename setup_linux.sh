@@ -33,9 +33,7 @@ install_rust() {
 }
 
 install_javascript() {
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-	. ~/.nvm/nvm.sh
-	nvm install 24
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 }
 
 install_vim_plug() {
