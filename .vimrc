@@ -56,7 +56,10 @@ nnoremap	<M-X>	:w<CR>:bd<CR>
 vnoremap	<M-X>	<C-C>:w<CR>:bd<CR>
 inoremap	<M-X>	<C-O>:w<CR>:bd<CR>
 
-" Search and replace
+" Search for selection
+vnoremap	<C-F>	"ry/<C-R>"<CR>
+
+" Search and replace selection
 " No escaping special characters
 " No yank default value
 nnoremap	<C-H>	viw"ry:%s/<C-R>"//g<Left><Left>
