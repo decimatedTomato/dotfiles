@@ -23,7 +23,7 @@ alias la='ls -a'
 
 alias python='python3'
 alias py='python3'
-v() { source "${1:-./venv}"/bin/activate || source ./.venv/bin/activate; }
+alias v='source ./venv/bin/activate || source ./.venv/bin/activate'
 alias vv='python -m venv venv && v'
 
 up() { printf -v blank '%*s' "${1:-1}" ' '; cd ${blank// /..\/} || return; }
