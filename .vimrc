@@ -3,8 +3,8 @@ if filereadable(glob('~/.vim/os.vim'))
 	source ~/.vim/os.vim
 endif
 
-set mouse=a 
 set clipboard+=unnamed
+set mouse=a 
 set number relativenumber
 set signcolumn=yes
 set hlsearch
@@ -37,16 +37,16 @@ inoremap	<M-R>	<C-O>:source $MYVIMRC<CR>
 " Control + c to exit without saving
 nnoremap	<C-C>	:qa!<CR>
 " Alt + c to exit without saving
-nnoremap	<M-C>	:qa!<CR>
-vnoremap	<M-C>	<C-C>:qa!<CR>
-inoremap	<M-C>	<C-O>:qa!<CR>
+nnoremap	<M-C>	:bd!<CR>
+vnoremap	<M-C>	<C-C>:bd!<CR>
+inoremap	<M-C>	<C-O>:bd!<CR>
 
 " Control + s to save
 nnoremap	<C-S>	:update<CR>
 vnoremap	<C-S>	<C-C>:update<CR>
 inoremap	<C-S>	<C-O>:update<CR>
-
 " Control + x to save and close
+
 nnoremap	<C-X>	:x<CR>
 nnoremap	<C-X>	<C-C>:x<CR>
 nnoremap	<C-X>	<C-O>:x<CR>
@@ -99,11 +99,6 @@ inoremap	<M-K>	<Esc>:m .-2<CR>==gi
 vnoremap	<M-J>	:m '>+1<CR>gv=gv
 vnoremap	<M-K>	:m '<-2<CR>gv=gv
 
-" Wish list
-" - Indenting/unindenting
-" - Comment lines (toggle)
-" - Find references (vim-lsp)
-
 " Restore cursor when reopening a file
 augroup RestoreCursor
     autocmd!
@@ -116,6 +111,26 @@ augroup RestoreCursor
     \ | endif
 augroup END
 
+" Open git diff besides commit message
+augroup gitcommit_diff
+    autocmd!
+    autocmd FileType gitcommit call GitCommitDiff()
+augroup END
+
+function! GitCommitDiff()
+    vertical rightbelow new " Create scratch buffer for diff
+    setlocal buftype=nofile
+    setlocal bufhidden=wipe
+    setlocal nobuflisted
+    setlocal noswapfile
+    silent read !git diff --cached
+    1delete
+    setlocal filetype=diff
+    setlocal readonly
+    wincmd h " Move cursor back to commit message
+endfunction
+
+
 " Plugins
 call plug#begin()
 Plug 'prabirshrestha/vim-lsp'
@@ -124,12 +139,10 @@ call plug#end()
 
 
 " vim-lsp configuration
-" Leader + q to show document diagnostics
-nnoremap	<leader>q	:LspDocumentDiagnostics<CR>
 " automatically install apropriate language server
 augroup lsp_install
     au!
-    autocmd User on_lsp_buffer_enabled call s:on_lsp_buffer_enabled
+    autocmd User lsp_buffer_enabled call <SID>on_lsp_buffer_enabled()
 augroup END
 " Keymaps for using lsp
 function! s:on_lsp_buffer_enabled() abort
@@ -146,6 +159,7 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> [g <plug>(lsp-previous-diagnostic)
     nmap <buffer> ]g <plug>(lsp-next-diagnostic)
     nmap <buffer> K <plug>(lsp-hover)
+    nmap <buffer> <leader>q <plug>(lsp-document-diagnostics)
 
     let g:lsp_format_sync_timeout = 1000
 
