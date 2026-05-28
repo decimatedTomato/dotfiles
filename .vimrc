@@ -15,7 +15,7 @@ set undodir=~/.vim/undo
 filetype on
 
 " Leader is spacebar
-let mapleader="<Space>"
+let mapleader="\<Space>"
 
 " Disable highlight when Escape is pressed
 nnoremap	<Esc>	:noh<cr>
@@ -65,10 +65,18 @@ vnoremap	<C-F>	"ry/<C-R>"<CR>
 nnoremap	<C-H>	viw"ry:%s/<C-R>"//g<Left><Left>
 vnoremap	<C-H>	"ry:%s/<C-R>"//g<Left><Left>
 
+" Surround selection in matching pair
+xnoremap	<leader>(	c(<C-R>")<Esc>
+xnoremap	<leader>[	c[<C-R>"]<Esc>
+xnoremap	<leader>{	c{<C-R>"}<Esc>
+xnoremap	<leader><	c<<C-R>"><Esc>
+xnoremap	<leader>"	c"<C-R>""<Esc>
+xnoremap	<leader>'	c'<C-R>"'<Esc>
+xnoremap	<leader>/*	c/*<C-R>"*/<Esc>
+
 " Alt + p to paste around selection
-" Last yank appends, second last yank prepends
-" It isn't ready yet
-" vnoremap	<M-P>	p
+" Requires saving prefix into p register, suffix into s register
+xnoremap	<M-P>	c<C-R>p<C-R>"<C-R>s<Esc>
 
 " Open a terminal split and make it real small
 "set	termwinkey=<ESC>
@@ -82,13 +90,14 @@ noremap	<M-J>	<C-W>j
 noremap	<M-K>	<C-W>k
 noremap	<M-L>	<C-W>l
 
-" Alt + j/k to move line or selected lines up/down (These don't work)
-"nnorenoremap	<M-J>	:m .+1<CR>==
-"nnorenoremap	<M-K>	:m .-2<CR>==
-"inorenoremap	<M-J>	<Esc>:m .+1<CR>==gi
-"inorenoremap	<M-K>	<Esc>:m .-2<CR>==gi
-"vnorenoremap	<M-J>	:m '>+1<CR>gv=gv
-"vnorenoremap	<M-K>	:m '<-2<CR>gv=gv
+" Alt + j/k to move line or selected lines up/down
+nnoremap	<M-J>	:m .+1<CR>==
+nnoremap	<M-K>	:m .-2<CR>==
+" Insert mode broken on windows
+inoremap	<M-J>	<Esc>:m .+1<CR>==gi
+inoremap	<M-K>	<Esc>:m .-2<CR>==gi
+vnoremap	<M-J>	:m '>+1<CR>gv=gv
+vnoremap	<M-K>	:m '<-2<CR>gv=gv
 
 " Wish list
 " - Indenting/unindenting
@@ -115,6 +124,8 @@ call plug#end()
 
 
 " vim-lsp configuration
+" Leader + q to show document diagnostics
+nnoremap	<leader>q	:LspDocumentDiagnostics<CR>
 " automatically install apropriate language server
 augroup lsp_install
     au!
@@ -136,8 +147,6 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> ]g <plug>(lsp-next-diagnostic)
     nmap <buffer> K <plug>(lsp-hover)
 
-    " Leader + q to show document diagnostics
-    nnoremap	<leader>q	:LspDocumentDiagnostics<CR>
     let g:lsp_format_sync_timeout = 1000
 
     " refer to doc to add more commands
