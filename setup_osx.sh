@@ -61,16 +61,16 @@ install_scroll_reverser() {
 	read -r
 }
 
-safely_insert_dotfile .gitconfig
-safely_insert_dotfile .bashrc
+insert_dotfile .gitconfig
+insert_dotfile .bashrc
 mkdir -p ~/.bash
 insert_dotfile .bashrc_osx .bash/.bashrc_os
-safely_insert_dotfile .zshrc
-safely_insert_dotfile .tmux.conf
+insert_dotfile .zshrc
+insert_dotfile .tmux.conf
 mkdir -p ~/.vim
 insert_dotfile .vim/ftplugin
-safely_insert_dotfile .vimrc
-safely_insert_dotfile .config/nvim
+insert_dotfile .vimrc
+insert_dotfile .config/nvim
 insert_dotfile .alias
 insert_dotfile .lesskey
 

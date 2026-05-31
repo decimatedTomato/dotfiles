@@ -70,12 +70,12 @@ package_install() {
 	$install_command "$@"
 }
 
-safely_insert_dotfile .gitconfig
-safely_insert_dotfile .bashrc
+insert_dotfile .gitconfig
+insert_dotfile .bashrc
 mkdir -p ~/.bash
 insert_dotfile bashrc_linux .bash/.bashrc_os
-safely_insert_dotfile .tmux.conf
-safely_insert_dotfile .vimrc
+insert_dotfile .tmux.conf
+insert_dotfile .vimrc
 mkdir -p ~/.vim
 insert_dotfile .vim/ftplugin
 insert_dotfile .alias

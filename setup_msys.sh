@@ -5,12 +5,12 @@ if [[ -z $script_dir ]]; then
 	exit 1
 fi
 
-safely_insert_dotfile .gitconfig
-safely_insert_dotfile .bashrc
+insert_dotfile .gitconfig
+insert_dotfile .bashrc
 mkdir -p ~/.bash
 insert_dotfile .bashrc_msys .bash/.bashrc_os
-safely_insert_dotfile .tmux.conf
-safely_insert_dotfile .vimrc
+insert_dotfile .tmux.conf
+insert_dotfile .vimrc
 insert_dotfile .alias
 insert_dotfile .lesskey
 
