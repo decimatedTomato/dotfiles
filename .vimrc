@@ -4,7 +4,7 @@ if filereadable(glob('~/.vim/os.vim'))
 endif
 
 set clipboard+=unnamed
-set mouse=a 
+set mouse=a
 set number relativenumber
 set signcolumn=yes
 set hlsearch
@@ -31,14 +31,14 @@ command!	Vrc	:edit $MYVIMRC
 
 " Alt + r to re-source vimrc
 nnoremap	<M-R>	:source $MYVIMRC<CR>
-vnoremap	<M-R>	<C-C>:source $MYVIMRC<CR>
+xnoremap	<M-R>	<C-C>:source $MYVIMRC<CR>
 inoremap	<M-R>	<C-O>:source $MYVIMRC<CR>
 
 " Control + c to exit without saving
 nnoremap	<C-C>	:qa!<CR>
 " Alt + c to exit without saving
 nnoremap	<M-C>	:bd!<CR>
-vnoremap	<M-C>	<C-C>:bd!<CR>
+xnoremap	<M-C>	<C-C>:bd!<CR>
 inoremap	<M-C>	<C-O>:bd!<CR>
 
 " Control + s to save
@@ -48,8 +48,8 @@ inoremap	<C-S>	<C-O>:update<CR>
 " Control + x to save and close
 
 nnoremap	<C-X>	:x<CR>
+xnoremap	<C-X>	<C-O>:x<CR>
 nnoremap	<C-X>	<C-C>:x<CR>
-nnoremap	<C-X>	<C-O>:x<CR>
 
 " Alt + x to close current buffer
 nnoremap	<M-X>	:w<CR>:bd<CR>
