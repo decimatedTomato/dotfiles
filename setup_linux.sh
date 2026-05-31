@@ -14,12 +14,11 @@ install_gvim() {
 install_fzf() {
 	local fzf_dir=~/git/fzf
 	mkdir -p $fzf_dir
-	git clone --depth 1 --branch v0.66.1 \
-		https://github.com/junegunn/fzf.git $fzf_dir
-	$fzf_dir/install --xdg --key-bindings --completion --no-update-rc --no-fish --no-zsh
+	git clone --depth 1 git@github.com:decimatedTomato/fzf.git "$fzf_dir"
+	"${fzf_dir}/install" --xdg --key-bindings --completion --no-update-rc --no-fish --no-zsh
 	local fzf_git_dir=~/git/fzf-git
 	mkdir -p $fzf_git_dir
-	git clone --depth 1 https://github.com/junegunn/fzf-git.sh.git $fzf_git_dir
+	git clone --depth 1  https://github.com/junegunn/fzf-git.sh.git "$fzf_git_dir"
 }
 
 install_c() {
@@ -37,8 +36,7 @@ install_javascript() {
 }
 
 install_vim_plug() {
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/decimatedTomato/vim-plug/refs/heads/master/plug.vim
 }
 
 install_tldr() {

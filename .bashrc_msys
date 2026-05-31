@@ -3,6 +3,8 @@
 ################################### SETTINGS ###################################
 ################################################################################
 
+bind 'set bell-style none'
+
 alias python='winpty python.exe'
 alias copy='iconv -f utf-8 -t utf-16le | clip.exe'
 alias paste='powershell.exe -command Get-Clipboard'
