@@ -5,6 +5,7 @@ alias vrc='$EDITOR ~/.vimrc'
 alias gcfg='$EDITOR ~/.gitconfig'
 alias tcfg='$EDITOR ~/.tmux.conf && tmux source-file ~/.tmux.conf'
 
+alias lali='$EDITOR ~/.alias_local && source ~/.alias_local'
 alias lbrc='$EDITOR ~/.bashrc_local && [[ $SHELL == */bin/bash ]] && source ~/.bashrc_local'
 alias lzrc='$EDITOR ~/.zshrc_local && [[ $SHELL == */bin/zsh ]] && source ~/.zshrc_local'
 alias lvrc='$EDITOR ~/.vimrc_local'
@@ -49,4 +50,6 @@ alias vimin='vim -'
 # For some reason this leaves "^[[2;2R<CR>2R" in the terminal (maybe because of windows.vim)
 alias vim_hotreload='vim -c "vnew | wincmd l | 3new | wincmd x | wincmd j | term ++curwin ++kill=term"'
 vimhelp() { vim +"help $*" +only; }
+
+[ -f ~/.alias_local ] && source ~/.alias_local
 

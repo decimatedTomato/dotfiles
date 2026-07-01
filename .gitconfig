@@ -22,3 +22,5 @@
 	path = ~/.gitconfig_local
 [init]
 	defaultBranch = main
+[rebase]
+	autoStash = true
