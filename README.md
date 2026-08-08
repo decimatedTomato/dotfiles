@@ -1,5 +1,7 @@
 # DOTFILES
 
+[![works-on-my-machine](https://cdn.jsdelivr.net/gh/nikku/works-on-my-machine@v0.4.0/badge.svg)](https://github.com/nikku/works-on-my-machine)
+
 ## HOW TO
 - Clone this repository
 - Back up any dotfiles
