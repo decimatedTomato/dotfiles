@@ -24,6 +24,7 @@ source ~/.alias
 
 [ -f ~/.config/fzf/fzf.bash ] && source ~/.config/fzf/fzf.bash
 [ -f ~/git/fzf-git/fzf-git.sh ]  && source ~/git/fzf-git/fzf-git.sh
+export FZF_CTRL_R_OPTS='--bind "ctrl-c:become:echo {q}"'
 
 [ -f ~/.cargo/env ] && source "$HOME/.cargo/env"
 
