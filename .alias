@@ -14,9 +14,12 @@ alias ltcfg='$EDITOR ~/.tmux.conf_local && tmux source-file ~/.tmux.conf_local'
 
 alias gs='git status'
 alias gd='git diff HEAD'
-alias gb='git branch'
+alias gf='git fetch'
+alias gb='git rev-parse --abbrev-ref HEAD'
 alias gl='git log --pretty=oneline'
+alias gco='git checkout'
 alias gcp='git cherry-pick'
+alias gro='git resetorigin'
 
 alias ll='ls -al'
 alias lh='ls -alh'
