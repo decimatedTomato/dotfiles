@@ -24,3 +24,5 @@
 	defaultBranch = main
 [rebase]
 	autoStash = true
+[credentials]
+	helper = store
