@@ -97,10 +97,10 @@ all_installed rustup cargo rustc \
 command -v ocaml >/dev/null || (ask "Install the *ocaml* toolchain?" && package_install ocaml)
 command -v tmux >/dev/null || (ask "Install *tmux* the terminal multiplexer?" && package_install tmux)
 # This check is broken
-# command -v fzf >/dev/null || (ask "Install *fzf* for fuzzy finding and shell completion?" && install_fzf)
+command -v fzf >/dev/null || (ask "Install *fzf* for fuzzy finding and shell completion?" && install_fzf)
 # This check is broken
-# [[ -f .vim/autoload/plug.vim ]] \
-# 	|| (ask "Install *vim-plug*, a simple vim plugin manager?" && install_vim_plug)
+[[ -f .vim/autoload/plug.vim ]] \
+	|| (ask "Install *vim-plug*, a simple vim plugin manager?" && install_vim_plug)
 command -v tldr >/dev/null || (ask "Install *tldr* to explain common usages of commands?" && install_tldr)
 command -v jq >/dev/null || (ask "Install *jq* to edit json?" && package_install jq)
 command -v tree >/dev/null || (ask "Install *tree* to display a filetree?" && package_install tree)
