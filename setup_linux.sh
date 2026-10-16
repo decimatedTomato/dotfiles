@@ -71,7 +71,8 @@ package_install() {
 insert_dotfile .gitconfig
 insert_dotfile .bashrc
 mkdir -p ~/.bash
-insert_dotfile bashrc_linux .bash/.bashrc_os
+insert_dotfile .bashrc_linux .bash/.bashrc_os
+insert_dotfile .bash_profile
 insert_dotfile .tmux.conf
 insert_dotfile .vimrc
 mkdir -p ~/.vim
