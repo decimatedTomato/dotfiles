@@ -3,7 +3,7 @@ if filereadable(glob('~/.vim/os.vim'))
 	source ~/.vim/os.vim
 endif
 
-set clipboard+=unnamed
+set clipboard=unnamedplus
 set mouse=a
 set number relativenumber
 set signcolumn=yes
